@@ -1,18 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️DIAS DOS NAMORADOS❤️</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Amor ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.container{
+    padding:30px;
+    max-width:700px;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:1.2rem;
+    margin-bottom:20px;
+}
+
+.contador{
+    font-size:1.5rem;
+    background:rgba(255,255,255,0.2);
+    padding:15px;
+    border-radius:15px;
+    margin:20px 0;
+}
+
+button{
+    background:white;
+    color:#ff4d6d;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.carta{
+    display:none;
+    margin-top:20px;
+    background:rgba(255,255,255,0.2);
+    padding:20px;
+    border-radius:15px;
+}
+</style>
 </head>
+
 <body>
-    <h1>Você é a minha alma gêmea </h1>  
-    <h2>o nosso amor nunca vai acabar</h2>
-    <marquee scrollamount="10">EU TE AMO</marquee>
-    <button onclick="mensagem()">Clique Aqui para mostrar uma mensagem especial pra você 💌</button>
-    <button onclick="remover()">clique aqui para tirar a mensagem</button>
-    <p id="p-mensagem"></p>
-    <script src="script.js"></script>
+
+<div class="container">
+    <h1>❤️ Feliz Dia dos Namorados ❤️</h1>
+
+    <p>Você é a melhor parte dos meus dias!</p>
+
+    <div class="contador">
+        Estamos juntos há:
+        <div id="tempo"></div>
+    </div>
+
+    <button onclick="abrirCarta()">
+        💌 Abrir Carta de Amor
+    </button>
+
+    <div class="carta" id="carta">
+        <h2>Para Meu Amor ❤️</h2>
+        <p>
+            Cada momento ao seu lado é especial.
+            Obrigada por fazer parte da minha vida,
+            pelos sorrisos, abraços e todo amor que compartilhamos.
+            Te amo infinitamente! ❤️
+        </p>
+    </div>
+</div>
+
+<script>
+// COLOQUE A DATA QUE VOCÊS COMEÇARAM A NAMORAR
+const dataNamoro = new Date("2024-01-01");
+
+function atualizarContador(){
+    const agora = new Date();
+    const diferenca = agora - dataNamoro;
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+
+    document.getElementById("tempo").innerHTML =
+        `${dias} dias, ${horas} horas e ${minutos} minutos`;
+}
+
+setInterval(atualizarContador,1000);
+atualizarContador();
+
+function abrirCarta(){
+    document.getElementById("carta").style.display = "block";
+}
+</script>
+
 </body>
 </html>

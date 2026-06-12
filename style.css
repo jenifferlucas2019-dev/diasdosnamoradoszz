@@ -1,4 +1,168 @@
-marquee{
-    border: 4px dashed pink;
-    padding: 10px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:linear-gradient(-45deg,#ff4d6d,#ff758f,#ff8fa3,#ffc2d1);
+    background-size:400% 400%;
+    animation:fundo 10s ease infinite;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+@keyframes fundo{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    text-shadow:3px 3px 10px rgba(0,0,0,0.3);
+    animation:pulsar 2s infinite;
+}
+
+.hero p{
+    font-size:1.5rem;
+    margin-top:15px;
+}
+
+@keyframes pulsar{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+section{
+    padding:60px 20px;
+}
+
+.contador{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    margin:20px;
+    border-radius:20px;
+}
+
+#tempo{
+    font-size:2rem;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.galeria{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.galeria img{
+    width:280px;
+    height:280px;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid white;
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.galeria img:hover{
+    transform:scale(1.08);
+}
+
+.cartas{
+    max-width:900px;
+    margin:auto;
+}
+
+button{
+    background:white;
+    color:#ff4d6d;
+    border:none;
+    padding:15px 30px;
+    margin:10px;
+    border-radius:30px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+#textoCarta{
+    margin-top:30px;
+    padding:25px;
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    font-size:1.2rem;
+}
+
+footer{
+    padding:30px;
+    font-size:1rem;
+}
+
+footer p{
+    opacity:0.9;
+}
+
+/* Chuva de corações */
+.coracoes::before{
+    content:"❤️ 💖 💕 💘 ❤️ 💖 💕";
+    position:fixed;
+    top:-50px;
+    left:0;
+    width:100%;
+    font-size:30px;
+    animation:cair 12s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes cair{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(120vh);
+    }
+}
+
+/* Responsivo */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .hero p{
+        font-size:1.2rem;
+    }
+
+    .galeria img{
+        width:90%;
+        height:auto;
+    }
+
+    #tempo{
+        font-size:1.5rem;
+    }
 }
